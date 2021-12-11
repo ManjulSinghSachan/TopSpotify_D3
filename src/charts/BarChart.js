@@ -7,19 +7,16 @@ function BarChart({ width, height, data }){
     var margin = ({top: 20, right: 120, bottom: 30, left: 120})
     var font = 'OpenSans'
 
-    useEffect(() => {
-        const svg = d3.select(ref.current)
-            .attr("width", width)
-            .attr("height", height)
-    }, []);
 
     useEffect(() => {
         draw();
-    }, [data]);
+    });
 
     const draw = () => {
         
-        const svg = d3.select(ref.current);
+        const svg = d3.select(ref.current)
+                    .attr("width", width)
+                    .attr("height", height);
 
         var scaleArtistY = d3.scaleBand()
             .domain(data.map((d)=>d.artist))

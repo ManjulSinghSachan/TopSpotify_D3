@@ -3,18 +3,17 @@ import './App.css';
 import BarChart from './charts/BarChart';
 import * as d3 from 'd3';
 
-var rawData = {};
+// var rawData = {};
 
 function App() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
         loadData();
-    }, []);
+    });
 
     const loadData = () => {
         d3.json("/StreamingHistory0.json").then(function(d) {
-            debugger;
             analyzeData(d);
         })
     }
